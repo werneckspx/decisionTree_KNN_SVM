@@ -71,7 +71,7 @@ O objetivo é comparar o desempenho dos modelos em cada cenário e discutir as i
 > - Todos os modelos têm acurácia abaixo de 70%, indicando dificuldade em aprender padrões no dataset menor.
 > - A Árvore de Decisão e o KNN têm alta taxa de falsos positivos (pacientes saudáveis classificados como diabéticos), o que pode levar a intervenções médicas desnecessárias, já o SVM tem um equilíbrio melhor, mas ainda com margem para melhorias.
 
-## 5. Considerações e Recomendações
+## 5. Considerações
 
 - **Impacto do Desbalanceamento:**  
   Nos dados desbalanceados, a acurácia elevada é ilusória, pois os modelos priorizam a classe majoritária e praticamente ignora a detecção da classe minoritária (diabetes).

@@ -6,7 +6,8 @@ Este relatório apresenta uma análise de modelos de aprendizado supervisionado 
 - **Dataset 1:** Grande e altamente desbalanceado, com aproximadamente 87% dos pacientes sem diabetes e 13% com diabetes.  
 - **Dataset 2:** Conjunto menor, porém com classes mais equilibradas (cerca de 50% para cada classe).
 
-Estes foram os dados uilizados:
+Os estão presentes na pasta `datasets`. Os dados utilizados foram:
+
 ```python
 X = df[['HighBP', 'HighChol', 'CholCheck', 'Smoker', 'Stroke',
         'HeartDiseaseorAttack', 'PhysActivity', 'Fruits', 'Veggies',

@@ -6,24 +6,29 @@ Este relatório apresenta uma análise de modelos de aprendizado supervisionado 
 - **Dataset 1:** Grande e altamente desbalanceado, com aproximadamente 87% dos pacientes sem diabetes e 13% com diabetes.  
 - **Dataset 2:** Conjunto menor, porém com classes mais equilibradas (cerca de 50% para cada classe).
 
+Estes foram os dados uilizados:
+```python
+X = df[['HighBP', 'HighChol', 'CholCheck', 'Smoker', 'Stroke',
+        'HeartDiseaseorAttack', 'PhysActivity', 'Fruits', 'Veggies',
+        'HvyAlcoholConsump', 'AnyHealthcare', 'NoDocbcCost']]
+y = df['Diabetes_binary']
+```
+
 O objetivo é comparar o desempenho dos modelos em cada cenário e discutir as implicações teóricas e práticas associadas às métricas de avaliação utilizadas, tais como acurácia, precisão (precision) e sensibilidade (recall).
 
 ## 2. Fundamentação Teórica
 
 ### 2.1 Árvore de Decisão
 
-- **Conceito:**  
   As árvores de decisão são modelos preditivos que utilizam uma estrutura em forma de árvore para representar decisões e seus possíveis resultados. Em problemas de classificação, as folhas da árvore representam os rótulos das classes, enquanto os ramos representam conjunções de condições dos atributos.
   As árvores de decisão estão entre os algoritmos de aprendizado de máquina mais populares devido à sua inteligibilidade e simplicidade. 
 
 ### 2.2 K-Nearest Neighbors (KNN)
 
-- **Conceito:**  
   O KNN é um algoritmo de aprendizado preguiçoso que armazena os dados de treinamento e, no momento da predição, classifica uma nova amostra com base nos *k* vizinhos mais próximos, utilizando métricas de distância (ex.: Euclidiana, Manhattan, Minkowski).
 
 ### 2.3 Support Vector Machine (SVM)
 
-- **Conceito:**  
   O SVM procura encontrar o hiperplano de margem máxima que separa as classes. Ele utiliza os vetores de suporte, que são os pontos mais próximos do hiperplano, para definir a fronteira entre as classes. Funções kernel (linear, polinomial, RBF, sigmoide) podem ser empregadas para mapear os dados para espaços de maior dimensão e melhorar a separação.
 
 ## 3. Métricas de Avaliação
@@ -71,13 +76,12 @@ O objetivo é comparar o desempenho dos modelos em cada cenário e discutir as i
   Nos dados desbalanceados, a acurácia elevada é ilusória, pois os modelos priorizam a classe majoritária e praticamente ignora a detecção da classe minoritária (diabetes).
 
 - **Pré-processamento:**  
-  - Para modelos baseados em distância (KNN, SVM), é importante utilizar dados normalizados, e se necessário aplicar redução de dimensionalidade (PCA) para facilitar a visualização e possivelmente melhorar o desempenho.
+  - Para modelos baseados em distância (KNN, SVM), é importante utilizar dados normalizados e corretamente tratados, e se necessário aplicar redução de dimensionalidade (PCA) para facilitar a visualização e possivelmente melhorar o desempenho.
   - A discretização pode ser útil para a interpretabilidade da Árvore de Decisão, mas pode acarretar perda de informação para métodos que dependem de distâncias.
 
 - **Escolha do Modelo:**  
   - Em conjuntos de dados desbalanceados, nenhum dos modelos apresentou desempenho satisfatório para a detecção da classe de diabetes.  
   - No dataset equilibrado, embora o desempenho global seja moderado, o SVM se mostrou ligeiramente superior em termos de equilíbrio entre precisão e recall.
-  - A escolha do modelo ideal dependerá do contexto clínico: se o custo dos falsos negativos for muito alto (não detectar um caso de diabetes), o modelo com maior recall para a classe positiva (diabetes) será preferível, mesmo que gere mais falsos positivos.
 
 ## 6. Conclusão
 

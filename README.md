@@ -70,7 +70,36 @@ O objetivo é comparar o desempenho dos modelos em cada cenário e discutir as i
 | KNN             | 85%      | 0.87              | 0.96           | 0.34              | 0.12           |
 | SVM             | 86%      | 0.86              | 1.00           | 0.00              | 0.00           |
 
-> **Observações:**  
+### Para a classe 0 (sem diabetes) e majoritária:
+
+#### Árvore de Decisão e SVM:
+
+Recall 1.00: O modelo está classificando todos os pacientes sem diabetes corretamente.
+
+Precisão 0.86: 14% das previsões "sem diabetes" são falsos positivos (pacientes que têm diabetes, mas foram classificados erroneamente como saudáveis).
+
+#### KNN:
+
+Recall 0.96: 4% dos pacientes sem diabetes foram classificados erroneamente como diabéticos.
+
+Precisão 0.87: 13% das previsões "sem diabetes" são falsos positivos.
+
+
+### Para classe 1 (com diabetes) minoritária:
+
+#### Árvore de Decisão e SVM:
+
+Recall 0.00: O modelo não identificou nenhum caso real de diabetes.
+
+Precisão 0.00: Todas as previsões para diabetes estão erradas.
+
+#### KNN:
+
+Recall 0.12: Apenas 12% dos casos reais de diabetes foram detectados.
+
+Precisão 0.34: Quando o modelo prevê diabetes, 66% das previsões estão erradas.
+
+> **Observações:**
 > - Para a Decision Tree e SVM, o modelo ignora completamente a classe minoritária (diabetes), prevendo sempre "sem diabetes".  
 > - O KNN apresenta uma leve capacidade de identificar diabetes, porém com baixa sensibilidade e precisão para a classe 1.
 
@@ -81,6 +110,42 @@ O objetivo é comparar o desempenho dos modelos em cada cenário e discutir as i
 | Decision Tree   | 70%      | 0.74              | 0.62           | 0.67              | 0.78           |
 | KNN             | 65%      | 0.64              | 0.69           | 0.66              | 0.61           |
 | SVM             | 69%      | 0.70              | 0.66           | 0.68              | 0.71           |
+
+### Para a classe 0 (sem diabetes) e majoritária:
+
+#### Árvore de Decisão:
+
+Precisão 74%: Quando prevê "sem diabetes", 26% são falsos positivos.
+
+Recall 62%: 38% dos pacientes sem diabetes foram erroneamente classificados como diabéticos.
+
+#### KNN:
+
+Recall 69%: 31% dos pacientes sem diabetes foram classificados como diabéticos.
+
+Precisão 0.87: 13% das previsões "sem diabetes" são falsos positivos.
+
+#### SVM:
+
+Precisão 70%: 30% das previsões "sem diabetes" são falsos positivos.
+
+### Para classe 1 (com diabetes) minoritária:
+
+#### Árvore de Decisão:
+
+Recall 78%: Identifica 78% dos casos reais de diabetes (melhor desempenho).
+
+Precisão 67%: 33% das previsões de diabetes estão erradas.
+
+#### KNN:
+
+Precisão 66%: 34% das previsões de diabetes estão erradas.
+
+Recall 61%: Baixa sensibilidade para detectar casos reais.
+
+#### SVM:
+
+Recall 71%: Melhor que o KNN para identificar casos reais de diabetes.
 
 > **Observações:**  
 > - Todos os modelos têm acurácia abaixo de 70%, indicando dificuldade em aprender padrões no dataset menor.
